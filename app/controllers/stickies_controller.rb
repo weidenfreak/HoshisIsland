@@ -1,5 +1,5 @@
 class StickiesController < ApplicationController
-  respond_to :json
+  respond_to :html, :json
   
   def index
   	respond_with Sticky.all
