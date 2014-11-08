@@ -46,6 +46,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    knockoutjs-rails (3.2.0)
+      railties (>= 3.1, < 5)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.6.0)
@@ -128,6 +130,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  knockoutjs-rails
   less-rails-bootstrap
   pg
   rails (= 4.0.2)

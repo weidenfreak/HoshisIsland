@@ -49,4 +49,6 @@ end
 gem 'therubyracer'  # If using Ruby
 gem 'less-rails-bootstrap'
 
+gem 'knockoutjs-rails'
+
 gem 'rails_12factor', group: :production
