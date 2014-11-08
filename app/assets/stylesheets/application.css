@@ -12,3 +12,17 @@
  *= require_tree .
  *= require twitter/bootstrap
  */
+ @import url(http://fonts.googleapis.com/css?family=Coming+Soon|Roboto|Open+Sans:300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
+#nav-col {
+	background-color: #555;
+}
+
+#nav-col h1 {
+	margin-top: 0;
+	padding: 10px 10px 10px 10px;
+	font-family: 'Roboto', sans-serif;
+}
+
+#stickies_col {
+	background-color: #888;
+}
