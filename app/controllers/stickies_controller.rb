@@ -11,6 +11,6 @@ class StickiesController < ApplicationController
   end
 
   def sticky_params
-  	params.require(:sticky).permit(:title)
+  	params.require(:sticky).permit(:title, :longitude, :latitude)
   end
 end

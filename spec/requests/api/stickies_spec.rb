@@ -21,7 +21,9 @@ describe "Stickies API" do
     it "creates a sticky" do
       sticky_params = {
         "sticky" => {
-          "title" => "Indiana Jones and the Temple of Doom"
+          "title" => "Indiana Jones and the Temple of Doom",
+          "latitude" => "63.833",
+          "longitude" => "20.25"
         }
       }.to_json
 
@@ -34,6 +36,8 @@ describe "Stickies API" do
 
       expect(response.status).to eq 201 # created
       expect(Sticky.first.title).to eq "Indiana Jones and the Temple of Doom"
+      expect(Sticky.first.longitude).to eq 20.25
+      expect(Sticky.first.latitude).to eq 63.833
     end
   end
 end
