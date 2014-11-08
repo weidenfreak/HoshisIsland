@@ -56,15 +56,15 @@ html, body {
 	font-size: 10px; 
 }
 
-.1 { 
+.one { 
 	background: url(/images/ /* fill content */) repeat; 
 } 
-.2 { 
+.two { 
 	background: url(/images/ /* fill content */) repeat; 
 } 
-.3 { 
+.three { 
 	background: url(/images/ /* fill content */) repeat; 
 } 
-.4 { 
+.four { 
 	background: url(/images/ /* fill content */) repeat; 
 }
