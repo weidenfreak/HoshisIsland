@@ -31,6 +31,10 @@
 	display: block;
 }
 
+.row {
+	margin-bottom: -50px;
+}
+
 html, body {
 	height: 100%;
 }
@@ -40,10 +44,10 @@ html, body {
     height: 100%;
 }
 
-.sticky {
-	max-height: 300px; /* Test */ 
+/*.sticky {
+	max-height: 300px;
 	background-color: yellow; overflow: hidden; 
-} 
+} */
 .sticky h1 { 
 	font-family:'Roboto', sans-serif; 
 }
@@ -56,15 +60,41 @@ html, body {
 	font-size: 10px; 
 }
 
+/*
 .one { 
-	background: url(/images/ /* fill content */) repeat; 
+	background: url(/images/ ) repeat; 
 } 
 .two { 
-	background: url(/images/ /* fill content */) repeat; 
+	background: url(/images/ ) repeat; 
 } 
 .three { 
-	background: url(/images/ /* fill content */) repeat; 
+	background: url(/images/ ) repeat; 
 } 
 .four { 
-	background: url(/images/ /* fill content */) repeat; 
+	background: url(/images/ ) repeat; 
+}
+*/
+
+.sticky {
+  -webkit-box-shadow: #DDD 0px 1px 2px;
+  position: relative;
+  background-color: #F4F39E;
+  border-color: #DEE184;
+  text-align: center;
+  margin: 2.5em 0px;
+  padding: 1.5em 1em;
+  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  font-family: Chalkboard, 'Comic Sans';
+}
+.sticky.taped:after {
+  display: block;
+  content: "";
+  position: absolute; 
+  width: 151px;
+  height: 35px;
+  top: -21px;
+  left: 45%;    
+  background: transparent url('/images/tape.png') 0 0 no-repeat;
 }
