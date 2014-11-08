@@ -55,15 +55,18 @@ var core = {
 
         if(core.lastPosition == null || core.lastPosition != null && core.lastPosition.latitude != position.coords.latitude && core.lastPosition.longitude != position.coords.longitude)
         {
-            //core.stickyViewModel.location.latitude(position.coords.latitude);
+            core.stickyViewModel.latitude(position.coords.latitude);
 
-            //core.stickyViewModel.location.longitude(position.coords.longitude);
+            core.stickyViewModel.longitude(position.coords.longitude);
 
             core.lastPosition = position.coords;
 
             core.isTimerRunning = true;
 
-            setTimeout(function(){core.isTimerRunning = false},15000);
+            setTimeout(function(){
+                core.isTimerRunning = false;
+                core.getStickies();
+            },15000);
         }
     },
     pinSticky:function(){
@@ -83,17 +86,44 @@ var core = {
             },
             error: function(error){
 
-                console.log(error.message);
+                console.log(error);
+            }
+        });
+    },
+    getStickies:function()
+    {
+        $.ajax
+        ({
+            headers: {
+                Accept : "application/json",
+                "Content-Type": "application/json"
+            },
+            type: "GET",
+            url: "/stickies",
+            data: {latitude:core.stickyViewModel.latitude(),longitude:core.stickyViewModel.longitude()},
+            success: function (stickiesArray) {
+
+                core.updateStickies(stickiesArray)
+            },
+            error: function(error){
+
+                console.log(error);
             }
         });
     },
     stickyViewModel:{
-        /*latitude:ko.observable(),
-        longitude:ko.observable(),*/
-        title:ko.observable()/*,
+        latitude:ko.observable(),
+        longitude:ko.observable(),
+        title:ko.observable(),
         note:ko.observable(),
         color:ko.observable(),
-        radius:ko.observable()*/
+        radius:ko.observable()
+    },
+    updateStickies:function(stickiesArray){
+
+        //core.appendSticky(x)
+        //core.removeSticky(x)
+        console.log(stickiesArray);
     }
 };
 
@@ -108,6 +138,13 @@ core.registerStartupFunction(function(){
         event.preventDefault();
 
         core.pinSticky();
+    });
+
+    $("[id^='option']").click(function(){
+
+        var className = $(this).attr("name");
+
+        $("#pin-sticky").css("background-image","url('/images/" + className + ".png') repeat");
     });
 });
 
