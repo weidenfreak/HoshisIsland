@@ -55,9 +55,9 @@ var core = {
 
         if(core.lastPosition == null || core.lastPosition != null && core.lastPosition.latitude != position.coords.latitude && core.lastPosition.longitude != position.coords.longitude)
         {
-            core.stickyViewModel.location.latitude(position.coords.latitude);
+            //core.stickyViewModel.location.latitude(position.coords.latitude);
 
-            core.stickyViewModel.location.longitude(position.coords.longitude);
+            //core.stickyViewModel.location.longitude(position.coords.longitude);
 
             core.lastPosition = position.coords;
 
@@ -86,14 +86,12 @@ var core = {
         });
     },
     stickyViewModel:{
-        location:{
-            latitude:ko.observable(),
-            longitude:ko.observable()
-        },
-        title:ko.observable(),
+        /*latitude:ko.observable(),
+        longitude:ko.observable(),*/
+        title:ko.observable()/*,
         note:ko.observable(),
         color:ko.observable(),
-        radius:ko.observable()
+        radius:ko.observable()*/
     }
 };
 
