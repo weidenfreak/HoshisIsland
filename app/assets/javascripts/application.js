@@ -53,7 +53,7 @@ var core = {
     },
     locationChangeHandler:function(position){
 
-        if(core.lastPosition == null || core.lastPosition != null && core.lastPosition.latitude != position.coords.latitude && core.lastPosition.longitude != position.coords.longitude)
+        if(!core.isTimerRunningcore)
         {
             core.stickyViewModel.latitude(position.coords.latitude);
 
@@ -64,8 +64,11 @@ var core = {
             core.isTimerRunning = true;
 
             setTimeout(function(){
+
                 core.isTimerRunning = false;
+
                 core.getStickies();
+
             },15000);
         }
     },
@@ -140,7 +143,7 @@ core.registerStartupFunction(function(){
         core.pinSticky();
     });
 
-    $("[id^='option']").click(function(){
+    $("[id^='option']").on("click", function(){
 
         var className = $(this).attr("name");
 
