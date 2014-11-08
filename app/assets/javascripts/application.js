@@ -71,9 +71,9 @@ var core = {
         $.ajax
         ({
             type: "POST",
-            url: 'stickies',
-            dataType: 'json',
-            async: false,
+            url: "/stickies",
+            async: true,
+            contentType: "application/json",
             data: json,
             success: function () {
                 
