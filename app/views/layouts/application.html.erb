@@ -53,7 +53,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <div class="modal fade" id="myModal">
+    <div class="modal fade" id="pin-sticky">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -74,16 +74,16 @@
 					<label for="inputStyle">Choose a style for your note</label><br/>
 					<div class="btn-group stickyBg" data-toggle="buttons">
 						<label class="btn btn-default option1">
-							<input type="radio" name="1" id="option1" onClick="changeBackground()">
+							<input type="radio" name="1" id="option1">
 						</label>
 						<label class="btn btn-default option2">
-							<input type="radio" name="2" id="option2" onClick="changeBackground()">
+							<input type="radio" name="2" id="option2">
 						</label>
 						<label class="btn btn-default option3">
-							<input type="radio" name="3" id="option3" onClick="changeBackground()">
+							<input type="radio" name="3" id="option3">
 						</label>
 						<label class="btn btn-default option4">
-							<input type="radio" name="4" id="option3" onClick="changeBackground()">
+							<input type="radio" name="4" id="option4">
 						</label>
 					</div>
 				</div>
