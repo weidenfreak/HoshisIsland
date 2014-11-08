@@ -4,8 +4,7 @@ class StickiesController < ApplicationController
 
   def index
     if params[:latitude] && params[:longitude]
-      #render :text => "latitude: #{params[:latitude]} and longitude: #{params[:longitude]}"
-      respond_with Sticky.all
+      respond_with Sticky.near([params[:latitude], params[:longitude]], 0.005, :units => :km)
     else
       respond_with Sticky.all
     end
