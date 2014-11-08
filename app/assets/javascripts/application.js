@@ -67,13 +67,15 @@ var core = {
         }
     },
     pinSticky:function(){
-        var json = ko.mapping.toJSON(core.stickyViewModel);
+        var json = JSON.stringify({sticky:ko.mapping.toJS(core.stickyViewModel)});
         $.ajax
         ({
+            headers: {
+                Accept : "application/json",
+                "Content-Type": "application/json"
+            },
             type: "POST",
             url: "/stickies",
-            async: true,
-            contentType: "application/json",
             data: json,
             success: function () {
                 
