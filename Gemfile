@@ -48,3 +48,5 @@ end
 #
 gem 'therubyracer'  # If using Ruby
 gem 'less-rails-bootstrap'
+
+gem 'rails_12factor', group: :production
