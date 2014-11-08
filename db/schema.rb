@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108202643) do
+ActiveRecord::Schema.define(version: 20141108234600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "stickies", force: true do |t|
     t.string   "title"
-    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "pattern"
+    t.integer  "radius"
+    t.text     "note"
   end
 
 end
