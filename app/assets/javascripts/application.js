@@ -77,7 +77,11 @@ var core = {
             data: json,
             success: function () {
                 
-                alert("Thanks!");
+                console.log("Done!");
+            },
+            error: function(error){
+
+                console.log(error.message);
             }
         });
     },
@@ -99,7 +103,7 @@ core.registerStartupFunction(function(){
 
     core.startWatchingTheLocation();
 
-    $("form#sticky-form").submit(function( event ) {
+    $("#sticky-form").submit(function( event ) {
 
         event.preventDefault();
 
