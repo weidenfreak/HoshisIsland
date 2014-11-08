@@ -12,7 +12,7 @@
  *= require_tree .
  *= require twitter/bootstrap
  */
- @import url(http://fonts.googleapis.com/css?family=Coming+Soon|Roboto|Open+Sans:300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Coming+Soon|Roboto|Open+Sans:300italic,300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
 
 #nav-col {
 	background-color: #555; 
@@ -53,12 +53,12 @@ html, body {
     height: 100%;
 }
 
-/*.sticky {
-	max-height: 300px;
-	background-color: yellow; overflow: hidden; 
-} */
+.sticky {
+	color: #000F55;
+}
 .sticky h1 { 
-	font-family:'Roboto', sans-serif; 
+	font-family:'Coming Soon', cursive; 
+	font-size: 25pt;
 }
 
 .sticky p { 
@@ -116,7 +116,40 @@ html, body {
 .addButton {
 	margin-top: 5px;
 	margin-left: 70%;
-	
+}
+
+.help-block {
+	font-family: 'Open Sans', sans-serif;
+	font-style: italic;
+	font-size: 0.8em;
+}
+
+.stickyBg label { 
+	margin: 0 15px; 
+	border-radius: 0px!important; 
+	width: 25px; 
+	height: 25px; 
+} 
+.stickyBg .btn:active, .btn.active { 
+	box-shadow: inset 0 3px 5px rgba(0,0,0,0.5)!important;
+}
+
+.option1 { 
+	background-image: url("/images/1.png")!important; 
+} 
+
+.option2 { 
+	background-image: url("/images/2.png")!important; 
+} 
+
+.option3 { 
+	background-image: url("/images/3.png")!important; 
+} 
+.option4 { 
+	background-image: url("/images/4.png")!important; 
+}
+
+.btnSubmit {
 	
 }
 /* STICKY FOLDED CORNER 

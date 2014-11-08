@@ -58,15 +58,38 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Add an awesome title to your note</h4>
-				
+				<h4 class="modal-title">Adding a new note</h4>
 			</div>
 			<div class="modal-body">
-				<p>One fine body&hellip;</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<form role="form">
+				<div class="form-group">
+				<label for="inputTitle">Add an awesome title to your note</label>
+				<input type="text" class="form-control" id="inputTitle" placeholder="Enter title">
+				<span class="help-block">25 characters maximum.</span>
+				</div>
+				<div class="form-group">
+					<label for="inputNote">Write your note below</label>
+					<textarea class="form-control" rows="3" id="textareaTitle" placeholder="Enter note"></textarea>
+					<span class="help-block">200 characters maximum.</span>
+					<label for="inputStyle">Choose a style for your note</label><br/>
+					<div class="btn-group stickyBg" data-toggle="buttons">
+						<label class="btn btn-default option1">
+							<input type="radio" name="1" id="option1" onClick="changeBackground()">
+						</label>
+						<label class="btn btn-default option2">
+							<input type="radio" name="2" id="option2" onClick="changeBackground()">
+						</label>
+						<label class="btn btn-default option3">
+							<input type="radio" name="3" id="option3" onClick="changeBackground()">
+						</label>
+						<label class="btn btn-default option4">
+							<input type="radio" name="4" id="option3" onClick="changeBackground()">
+						</label>
+					</div>
+				</div>
+				
+				<button type="submit" class="btn btn-success btn-lg btn-block" id="btnSubmit">Submit</button>
+				</form>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
