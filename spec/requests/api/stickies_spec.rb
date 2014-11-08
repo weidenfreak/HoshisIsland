@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 describe "Stickies API" do
   describe "GET /stickies" do
-    xit "returns all the stickies" do
+    it "returns all the stickies" do
       FactoryGirl.create :sticky, text: "Ladida"
       FactoryGirl.create :sticky, text: "Lorem Ipsum"
 
