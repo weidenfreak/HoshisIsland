@@ -2,8 +2,8 @@
 describe "Stickies API" do
   describe "GET /stickies" do
     it "returns all the stickies" do
-      FactoryGirl.create :sticky, name: "Ladida"
-      FactoryGirl.create :sticky, name: "Lorem Ipsum"
+      FactoryGirl.create :sticky, text: "Ladida"
+      FactoryGirl.create :sticky, text: "Lorem Ipsum"
 
       get "/stickies", {}, { "Accept" => "application/json" }
 
