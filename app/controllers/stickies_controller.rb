@@ -3,7 +3,12 @@ class StickiesController < ApplicationController
   respond_to :html, :json
 
   def index
-  	respond_with Sticky.all
+    if params[:latitude] && params[:longitude]
+      #render :text => "latitude: #{params[:latitude]} and longitude: #{params[:longitude]}"
+      respond_with Sticky.all
+    else
+      respond_with Sticky.all
+    end
   end
 
   def create
