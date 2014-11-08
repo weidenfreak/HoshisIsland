@@ -8,17 +8,18 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-	<div class="container">
+	<div class="container fill">
 		<div class="row">
 			<div class="col-md-12" id="nav-col">
 				<h1>This is header!</h1></div>
 			</div>
 		<div class="row">
-			<div class="col-md-12" id="stickies_col">Here will be the stickies</div>
+			<div class="col-md-12" id="stickies_col">
+
+			<%= yield %>
+			</div>
 		</div>
 	</div>
-
-<%= yield %>
 
 </body>
 </html>
