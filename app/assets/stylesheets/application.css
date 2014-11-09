@@ -124,9 +124,10 @@ html, body {
   font-family: Chalkboard, 'Comic Sans';
   /*width: 300px;*/
   height: 300px;
-
+  word-break: break-all;
   margin-left: auto;
   margin-right: auto;
+
 }
 .sticky.taped:after {
   display: block;
@@ -135,7 +136,7 @@ html, body {
   width: 40px;
   height: 213px;
   top: -21px;
-  left: 45%;    
+  left: 45%;  
   background: transparent url('/images/pin.png') 0 0 no-repeat;
   background-size: 100%;
 }
