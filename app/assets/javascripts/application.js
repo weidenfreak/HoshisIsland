@@ -45,7 +45,31 @@ var core = {
     },
     startWatchingTheLocation:function(){
 
-        core.watcherID = navigator.geolocation.watchPosition(core.locationChangeHandler);
+        core.watcherID = navigator.geolocation.watchPosition(core.locationChangeHandler, core.logLocationDetectionError, core.geoOptions);
+    },
+    geoOptions: {
+        enableHighAccuracy: false,
+        maximumAge: 1000,
+        timeout: 10000
+    },
+    logLocationDetectionError:function(error){
+
+        if(error.code == 0)
+        {
+            console.log("Unknown error.");
+        }
+        else if(error.code == 1)
+        {
+            console.log("Permission denied.");
+        }
+        else if(error.code == 2)
+        {
+            console.log("Position unavailable (error response from locaton provider).");
+        }
+        else if(error.code == 3)
+        {
+            console.log("Timed out.");
+        }
     },
     stopWatchingTheLocation:function(){
 
@@ -197,7 +221,5 @@ var core = {
 
     $(".modal-content").css("background-image","url('/images/1.png')");
 
-    setTimeout(function(){core.timelyUpdateFunction();},5000);
-        
-    core.intervalID = setInterval(core.timelyUpdateFunction,15000);
+    core.intervalID = setInterval(core.timelyUpdateFunction,5000);
 });
