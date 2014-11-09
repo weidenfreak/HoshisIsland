@@ -24,17 +24,17 @@ var core = {
     lastPosition:null,
     intervalID:null,
     currentStickiesArray:null,
-    createSticky:function(title, note, timestamp, pattern, latitude, longitude, stickyID){
+    createSticky:function(title, note, timestamp, pattern, stickyID){
 
         var sticky = $('<div />');
 
-        sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(latitude)).append($('<p />').text(longitude)).append($('<p />').text(timestamp)).addClass("col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 taped sticky trans fade option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
+        sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 taped sticky trans fade option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
 
         return sticky;
     },
     appendSticky:function(sticky){
 
-        var stickyObject = this.createSticky(sticky.title, sticky.note, new Date(sticky.created_at).toLocaleString(), sticky.pattern, sticky.latitude, sticky.longitude, sticky.id);
+        var stickyObject = this.createSticky(sticky.title, sticky.note, new Date(sticky.created_at).toLocaleString(), sticky.pattern, sticky.id);
 
         $("#stickies_col").prepend(stickyObject);
 
