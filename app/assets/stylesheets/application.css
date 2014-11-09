@@ -12,7 +12,7 @@
  *= require_tree .
  *= require twitter/bootstrap
  */
-@import url(http://fonts.googleapis.com/css?family=Coming+Soon|Roboto|Open+Sans:300italic,300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Coming+Soon|Roboto|Open+Sans:300italic,300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
 
 @media (min-width: 384px) and (max-width: 768px) {
 	.sticky {
@@ -143,6 +143,9 @@ html, body {
 	font-size: 17pt;
 }
 
+.sticky p  {
+    word-break: break-all;
+}
 
 .addButton {
 	margin-top: 5px;
