@@ -22,7 +22,7 @@
 var core = {
     watcherID:null,
     lastPosition:null,
-    isTimerRunning:false,
+    intervalID:null,
     createSticky:function(){
 
     },
@@ -53,24 +53,13 @@ var core = {
     },
     locationChangeHandler:function(position){
 
-        if(!core.isTimerRunningcore)
-        {
-            core.stickyViewModel.latitude(position.coords.latitude);
+        core.stickyViewModel.latitude(position.coords.latitude);
 
-            core.stickyViewModel.longitude(position.coords.longitude);
+        core.stickyViewModel.longitude(position.coords.longitude);
+    },
+    timelyUpdateFunction:function() {
 
-            core.lastPosition = position.coords;
-
-            core.isTimerRunning = true;
-
-            setTimeout(function(){
-
-                core.isTimerRunning = false;
-
-                core.getStickies();
-
-            },15000);
-        }
+        core.getStickies();
     },
     pinSticky:function(){
         var json = JSON.stringify({sticky:ko.mapping.toJS(core.stickyViewModel)});
@@ -119,7 +108,7 @@ var core = {
         longitude:ko.observable(),
         title:ko.observable(),
         note:ko.observable(),
-        color:ko.observable(),
+        pattern:ko.observable(),
         radius:ko.observable()
     },
     updateStickies:function(stickiesArray){
@@ -143,15 +132,12 @@ core.registerStartupFunction(function(){
         core.pinSticky();
     });
 
-    $("[id^='option']").on("click", function(){
+    $("[id^='option']").parent().on("click", function(){
 
-        var className = $(this).attr("name");
+        var className = $(this).children("[id^='option']").attr("name");
 
-        $("#pin-sticky").css("background-image","url('/images/" + className + ".png') repeat");
+        $(".modal-content").css("background-image","url('/images/" + className + ".png')");
     });
-});
 
-/*
- JSON.parse(response.body)
- [{"id"=>8, "title"=>"MyString", "text"=>"Ladida", "created_at"=>"2014-11-08T18:15:49.495Z", "updated_at"=>"2014-11-08T18:15:49.495Z"}, {"id"=>9, "title"=>"MyString", "text"=>"Lorem Ipsum", "created_at"=>"2014-11-08T18:15:49.508Z", "updated_at"=>"2014-11-08T18:15:49.508Z"}]
- */
+    core.intervalID = setInterval(core.timelyUpdateFunction,15000);
+});
