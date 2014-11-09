@@ -30,22 +30,18 @@ var core = {
 
         sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 taped sticky option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
 
-        $("#stickies_col").append(sticky);
-
-        /*if (isRead) {
-
-            sticky.addClass(isRead);
-        }*/
+        return sticky;
     },
     appendSticky:function(sticky){
 
-        this.createSticky(sticky.title, sticky.note, new Date(sticky.created_at).toLocaleString(), sticky.pattern, sticky.id);
-        //console.log("Add: " + sticky.id);
+        var stickyObject = this.createSticky(sticky.title, sticky.note, new Date(sticky.created_at).toLocaleString(), sticky.pattern, sticky.id);
+
+        $("#stickies_col").prepend(stickyObject);
 
     },
     removeSticky:function(id){
 
-        //console.log("Remove: " + id);
+        $("#sticky" + id).remove();
     },
     startWatchingTheLocation:function(){
 
@@ -71,8 +67,6 @@ var core = {
         core.stickyViewModel.latitude(position.coords.latitude);
 
         core.stickyViewModel.longitude(position.coords.longitude);
-
-        //console.log(position.coords.latitude + " - " + position.coords.longitude);
     },
     timelyUpdateFunction:function() {
 
@@ -93,7 +87,9 @@ var core = {
                 
                 alert("Your sticky has been pined!");
 
-                $(".modal").data("bs.modal").hide()
+                $(".modal").data("bs.modal").hide();
+
+                core.getStickies();
             },
             error: function(error){
 
@@ -118,7 +114,7 @@ var core = {
             },
             error: function(error){
 
-                //console.warn("Some problem happened while finding the stickies!");
+                console.warn("Some problem happened while finding the stickies!");
             }
         });
     },
@@ -157,7 +153,7 @@ var core = {
 
             for (var a = 0; a < removingStickies.length; a++) {
 
-                core.removeSticky(removingStickies[b]);
+                core.removeSticky(removingStickies[a]);
             }
         }
 
@@ -201,14 +197,7 @@ var core = {
 
     $(".modal-content").css("background-image","url('/images/1.png')");
 
-    core.timelyUpdateFunction();
+    setTimeout(function(){core.timelyUpdateFunction();},5000);
         
     core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
-//Office Coors:
-//Latitude: 63.825563567822556
-//Longitude:20.265337888497402
-
-//Hall Coors:
-//Latitude: 63.825563567822556
-//Longitude:20.265337888497402
