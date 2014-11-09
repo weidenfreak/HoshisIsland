@@ -121,6 +121,7 @@ var core = {
     },
     updateStickies:function(stickiesArray){
 
+
         //core.appendSticky(x)
         //core.removeSticky(x)
         console.log(stickiesArray);
