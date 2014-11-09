@@ -23,19 +23,20 @@ var core = {
     watcherID:null,
     lastPosition:null,
     intervalID:null,
-    createSticky:function(title, timestamp,style,stickyID){
+    createSticky:function(title, note, timestamp, pattern, stickyID){
 
         var sticky = $('<div />');
 
-        sticky.append($('<h1 />').text(title)).append($('<p />').text(text)).append($('<p />').text(timestamp)).addClass("col-md-12 " + style).attr('id', 'sticky' + stickyID);
+        sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-md-12 option" + pattern).attr('id', 'sticky' + stickyID);
+        $("#stickies_col").append(sticky);
 
-        if (isRead) {
+        /*if (isRead) {
 
             sticky.addClass(isRead);
-        }
+        }*/
     },
     appendSticky:function(sticky){
-
+        this.createSticky(sticky.title, sticky.note, new Date(sticky.created_at).toLocaleString(), sticky.pattern, sticky.id);
     },
     removeSticky:function(id){
 
@@ -121,8 +122,13 @@ var core = {
     },
     updateStickies:function(stickiesArray){
 
-
-        //core.appendSticky(x)
+        var arrayLength = stickiesArray.length;
+        if(arrayLength > 0){
+            for (var i = 0; i < arrayLength; i++) {
+            core.appendSticky(stickiesArray[i]);
+            }     
+        }
+        
         //core.removeSticky(x)
         console.log(stickiesArray);
     }
@@ -157,6 +163,6 @@ core.registerStartupFunction(function(){
     $("[id='option1']").parent().addClass("active");
 
     $(".modal-content").css("background-image","url('/images/1.png')");
-
-    core.intervalID = setInterval(core.timelyUpdateFunction,15000);
+    core.timelyUpdateFunction();
+    //core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
