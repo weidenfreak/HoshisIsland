@@ -22,12 +22,12 @@
 		</div>
 	</div>
     <div>
-    <form id="sticky-form">
+    <!--form id="sticky-form">
       <label>
         Title:
         <input type="time" id="title" name="title" data-bind="value:title" />
       </label>
-      <!--label>
+      <label>
         Note:
         <textarea id="note" name="note" data-bind="value:note"></textarea>
       </label>
@@ -46,54 +46,53 @@
       <label>
         Visible distance:
         <input type="text" id="radius" name="radius" data-bind="value:radius" />
-      </label-->
+      </label>
         <input type="submit" value="Submit">
-    </form>
+    </form-->
+        <div class="modal fade" id="pin-sticky">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Adding a new note</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" id="sticky-form">
+                            <div class="form-group">
+                                <label for="inputTitle">Add an awesome title to your note</label>
+                                <input type="text" class="form-control" id="inputTitle" placeholder="Enter title" data-bind="value:title" />
+                                <span class="help-block">25 characters maximum.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputTextArea">Write your note below</label>
+                                <textarea class="form-control" rows="3" id="inputTextArea" placeholder="Enter note" data-bind="value:note"></textarea>
+                                <span class="help-block">200 characters maximum.</span>
+                                <label>Choose a style for your note</label><br/>
+                                <div class="btn-group stickyBg" data-toggle="buttons">
+                                    <label class="btn btn-default option1">
+                                        <input type="radio" name="1" id="option1" value="1"  data-bind="checked: pattern">
+                                    </label>
+                                    <label class="btn btn-default option2">
+                                        <input type="radio" name="2" id="option2" value="2"  data-bind="checked: pattern">
+                                    </label>
+                                    <label class="btn btn-default option3">
+                                        <input type="radio" name="3" id="option3" value="3"  data-bind="checked: pattern">
+                                    </label>
+                                    <label class="btn btn-default option4">
+                                        <input type="radio" name="4" id="option4" value="4"  data-bind="checked: pattern">
+                                    </label>
+                                </div>
+                            </div>
+                            <br/>
+                            <button type="submit" class="btn btn-success btn-lg center-block" id="btnSubmit">Submit</button>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <div class="modal fade" id="pin-sticky">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Adding a new note</h4>
-			</div>
-			<div class="modal-body">
-				<form role="form">
-				<div class="form-group">
-				<label for="inputTitle">Add an awesome title to your note</label>
-				<input type="text" class="form-control" id="inputTitle" placeholder="Enter title">
-				<span class="help-block">25 characters maximum.</span>
-				</div>
-				<div class="form-group">
-					<label for="inputNote">Write your note below</label>
-					<textarea class="form-control" rows="3" id="inputTextArea" placeholder="Enter note"></textarea>
-					<span class="help-block">200 characters maximum.</span>
-					<label for="inputStyle">Choose a style for your note</label><br/>
-					<div class="btn-group stickyBg" data-toggle="buttons">
-						<label class="btn btn-default option1">
-							<input type="radio" name="1" id="option1">
-						</label>
-						<label class="btn btn-default option2">
-							<input type="radio" name="2" id="option2">
-						</label>
-						<label class="btn btn-default option3">
-							<input type="radio" name="3" id="option3">
-						</label>
-						<label class="btn btn-default option4">
-							<input type="radio" name="4" id="option4">
-						</label>
-					</div>
-				</div>
-				<br/>
-				<button type="submit" class="btn btn-success btn-lg center-block" id="btnSubmit">Submit</button>
-				</form>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 </body>
 </html>
