@@ -28,7 +28,7 @@ var core = {
 
         var sticky = $('<div />');
 
-        sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 taped sticky option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
+        sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 taped sticky trans fade option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
 
         return sticky;
     },
@@ -38,10 +38,16 @@ var core = {
 
         $("#stickies_col").prepend(stickyObject);
 
+        setTimeout(function(){stickyObject.addClass("in");},500);
+
     },
     removeSticky:function(id){
 
-        $("#sticky" + id).remove();
+        var theSticky = $("#sticky" + id);
+
+        theSticky.removeClass("in");
+
+        setTimeout(function(){theSticky.toggle();setTimeout(function(){theSticky.remove();},500);},500);
     },
     startWatchingTheLocation:function(){
 
