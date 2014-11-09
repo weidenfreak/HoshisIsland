@@ -23,6 +23,7 @@ var core = {
     watcherID:null,
     lastPosition:null,
     intervalID:null,
+    currentStickiesArray:null,
     createSticky:function(title, timestamp,style,stickyID){
 
         var sticky = $('<div />');
@@ -36,9 +37,11 @@ var core = {
     },
     appendSticky:function(sticky){
 
+        console.log("Add: " + sticky.id);
     },
     removeSticky:function(id){
 
+        console.log("Remove: " + id);
     },
     startWatchingTheLocation:function(){
 
@@ -82,11 +85,13 @@ var core = {
             data: json,
             success: function () {
                 
-                console.log("Done!");
+                alert("Your sticky has been pined!");
+
+                $(".modal").data("bs.modal").hide()
             },
             error: function(error){
 
-                console.log(error);
+                alert("Some problem happened while pinning your sticky!");
             }
         });
     },
@@ -107,7 +112,7 @@ var core = {
             },
             error: function(error){
 
-                console.log(error);
+                alert("Some problem happened while finding the stickies!");
             }
         });
     },
@@ -121,10 +126,44 @@ var core = {
     },
     updateStickies:function(stickiesArray){
 
+        //Enumerable.From(stickiesArray).ForEach(function(c){console.log(c.latitude + " - " + c.longitude)});
 
-        //core.appendSticky(x)
-        //core.removeSticky(x)
-        console.log(stickiesArray);
+        var addingStickies = null;
+
+        var removingStickies = null;
+
+        if(core.currentStickiesArray == null)
+        {
+            addingStickies = stickiesArray;
+        }
+        else
+        {
+            var enumerable = Enumerable.From(stickiesArray);
+
+            var oldEnumerable = Enumerable.From(core.currentStickiesArray);
+
+            addingStickies = enumerable.Where(function(i){return oldEnumerable.Count(function(x){return x.id == i.id;}) == 0}).Reverse().ToArray();
+
+            removingStickies = oldEnumerable.Where(function(i){return enumerable.Count(function(x){return x.id == i.id;}) == 0}).Select(function(y){return y.id;}).ToArray();
+        }
+
+        core.currentStickiesArray = stickiesArray;
+
+        if(removingStickies != null) {
+
+            for (var a = 0; a < removingStickies.length; a++) {
+
+                core.removeSticky(removingStickies[b]);
+            }
+        }
+
+        if(addingStickies != null) {
+
+            for (var b = 0; b < addingStickies.length; b++) {
+
+                core.appendSticky(addingStickies[b]);
+            }
+        }
     }
 };
 
@@ -157,6 +196,8 @@ core.registerStartupFunction(function(){
     $("[id='option1']").parent().addClass("active");
 
     $(".modal-content").css("background-image","url('/images/1.png')");
+
+    core.timelyUpdateFunction();
 
     core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
