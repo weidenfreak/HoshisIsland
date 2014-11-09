@@ -14,21 +14,6 @@
  */
 @import url(http://fonts.googleapis.com/css?family=Coming+Soon|Roboto|Open+Sans:300italic,300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
-
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
-
-}
-
 @media (min-width: 384px) and (max-width: 768px) {
 	.sticky {
 		width: 250px!important;
