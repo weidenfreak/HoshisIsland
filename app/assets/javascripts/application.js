@@ -29,6 +29,7 @@ var core = {
         var sticky = $('<div />');
 
         sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 taped sticky option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
+
         $("#stickies_col").append(sticky);
 
         /*if (isRead) {
@@ -39,12 +40,12 @@ var core = {
     appendSticky:function(sticky){
 
         this.createSticky(sticky.title, sticky.note, new Date(sticky.created_at).toLocaleString(), sticky.pattern, sticky.id);
-        console.log("Add: " + sticky.id);
+        //console.log("Add: " + sticky.id);
 
     },
     removeSticky:function(id){
 
-        console.log("Remove: " + id);
+        //console.log("Remove: " + id);
     },
     startWatchingTheLocation:function(){
 
@@ -70,6 +71,8 @@ var core = {
         core.stickyViewModel.latitude(position.coords.latitude);
 
         core.stickyViewModel.longitude(position.coords.longitude);
+
+        //console.log(position.coords.latitude + " - " + position.coords.longitude);
     },
     timelyUpdateFunction:function() {
 
@@ -115,7 +118,7 @@ var core = {
             },
             error: function(error){
 
-                console.warn("Some problem happened while finding the stickies!");
+                //console.warn("Some problem happened while finding the stickies!");
             }
         });
     },
@@ -202,3 +205,10 @@ var core = {
         
     core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
+//Office Coors:
+//Latitude: 63.825563567822556
+//Longitude:20.265337888497402
+
+//Hall Coors:
+//Latitude: 63.825563567822556
+//Longitude:20.265337888497402
