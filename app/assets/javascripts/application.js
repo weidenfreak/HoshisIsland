@@ -138,7 +138,7 @@ core.registerStartupFunction(function(){
 
         core.stickyViewModel.pattern(className);
 
-        $(".modal-content").css("background","url('/images/" + className + ".png')!important");
+        $(".modal-content").css("background-image","url('/images/" + className + ".png')");
     });
 
     core.stickyViewModel.pattern("1");
@@ -147,7 +147,7 @@ core.registerStartupFunction(function(){
 
     $("[id='option1']").parent().addClass("active");
 
-    $(".modal-content").css("background","url('/images/1.png')!important");
+    $(".modal-content").css("background-image","url('/images/1.png')");
 
     core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
