@@ -136,8 +136,18 @@ core.registerStartupFunction(function(){
 
         var className = $(this).children("[id^='option']").attr("name");
 
-        $(".modal-content").css("background-image","url('/images/" + className + ".png')");
+        core.stickyViewModel.pattern(className);
+
+        $(".modal-content").css("background","url('/images/" + className + ".png')!important");
     });
+
+    core.stickyViewModel.pattern("1");
+
+    $(this).children("[id='option1']").attr("checked","checked");
+
+    $("[id='option1']").parent().addClass("active");
+
+    $(".modal-content").css("background","url('/images/1.png')!important");
 
     core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
