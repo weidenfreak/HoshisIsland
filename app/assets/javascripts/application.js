@@ -123,24 +123,27 @@ var core = {
     },
     getStickies:function()
     {
-        $.ajax
-        ({
-            headers: {
-                Accept : "application/json",
-                "Content-Type": "application/json"
-            },
-            type: "GET",
-            url: "/stickies",
-            data: {latitude:core.stickyViewModel.latitude(),longitude:core.stickyViewModel.longitude()},
-            success: function (stickiesArray) {
+        if(core.stickyViewModel.latitude() == null && core.stickyViewModel.longitude() == null) {
+            
+            $.ajax
+            ({
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                type: "GET",
+                url: "/stickies",
+                data: {latitude: core.stickyViewModel.latitude(), longitude: core.stickyViewModel.longitude()},
+                success: function (stickiesArray) {
 
-                core.updateStickies(stickiesArray)
-            },
-            error: function(error){
+                    core.updateStickies(stickiesArray)
+                },
+                error: function (error) {
 
-                console.warn("Some problem happened while finding the stickies!");
-            }
-        });
+                    console.warn("Some problem happened while finding the stickies!");
+                }
+            });
+        }
     },
     stickyViewModel:{
         latitude:ko.observable(),
