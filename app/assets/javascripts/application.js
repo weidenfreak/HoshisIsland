@@ -23,8 +23,16 @@ var core = {
     watcherID:null,
     lastPosition:null,
     intervalID:null,
-    createSticky:function(){
+    createSticky:function(title, timestamp,style,stickyID){
 
+        var sticky = $('<div />');
+
+        sticky.append($('<h1 />').text(title)).append($('<p />').text(text)).append($('<p />').text(timestamp)).addClass("col-md-12 " + style).attr('id', 'sticky' + stickyID);
+
+        if (isRead) {
+
+            sticky.addClass(isRead);
+        }
     },
     appendSticky:function(sticky){
 
