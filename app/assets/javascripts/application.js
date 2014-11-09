@@ -115,7 +115,7 @@ var core = {
             },
             error: function(error){
 
-                alert("Some problem happened while finding the stickies!");
+                console.warn("Some problem happened while finding the stickies!");
             }
         });
     },
@@ -199,5 +199,6 @@ var core = {
     $(".modal-content").css("background-image","url('/images/1.png')");
 
     core.timelyUpdateFunction();
+        
     core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
