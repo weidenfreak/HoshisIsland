@@ -123,8 +123,8 @@ var core = {
     },
     getStickies:function()
     {
-        if(core.stickyViewModel.latitude() == null && core.stickyViewModel.longitude() == null) {
-            
+        if(core.stickyViewModel.latitude() != null && core.stickyViewModel.longitude() != null) {
+
             $.ajax
             ({
                 headers: {
