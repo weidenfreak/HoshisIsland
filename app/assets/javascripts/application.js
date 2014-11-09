@@ -164,5 +164,5 @@ core.registerStartupFunction(function(){
 
     $(".modal-content").css("background-image","url('/images/1.png')");
     core.timelyUpdateFunction();
-    //core.intervalID = setInterval(core.timelyUpdateFunction,15000);
+    core.intervalID = setInterval(core.timelyUpdateFunction,15000);
 });
