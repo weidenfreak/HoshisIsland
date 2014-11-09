@@ -14,6 +14,11 @@
  */
 @import url(http://fonts.googleapis.com/css?family=Coming+Soon|Roboto|Open+Sans:300italic,300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic);
 
+.container {
+	width: 100%!important;
+	margin-left: 0;
+	margin-right: 0;
+}
 #nav-col {
 	background-color: #555; 
 	font-family: 'Roboto', sans-serif; 
