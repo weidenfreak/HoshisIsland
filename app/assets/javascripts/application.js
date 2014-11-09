@@ -28,7 +28,7 @@ var core = {
 
         var sticky = $('<div />');
 
-        sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-md-12 option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
+        sticky.append($('<h1 />').text(title)).append($('<p />').text(note)).append($('<p />').text(timestamp)).addClass("col-xs-10 col-sm-4 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 taped sticky option" + pattern).addClass("sticky").attr('id', 'sticky' + stickyID);
         $("#stickies_col").append(sticky);
 
         /*if (isRead) {
